@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "ChoreMint.html",
+      "src": "**/*",
       "use": "@vercel/static"
     }
   ],
@@ -10,10 +10,6 @@
     {
       "src": "/",
       "dest": "/ChoreMint.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
     }
   ]
 }
