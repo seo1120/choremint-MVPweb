@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVP Proposal - choremint</title>
+    
+    <!-- 파비콘 추가 -->
+    <link rel="icon" type="image/png" href="mint-star96.png">
+    <link rel="apple-touch-icon" href="mint-star96.png">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-gray-100 to-teal-100 min-h-screen">
+    <div class="container mx-auto px-4 py-12 max-w-4xl">
+        <!-- Language Toggle -->
+        <div class="flex justify-end mb-4">
+            <button id="langToggle" class="px-4 py-2 bg-teal-500 text-white rounded-lg hover:bg-teal-600 transition-colors">
+                한국어
+            </button>
+        </div>
+
+        <!-- Header -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+            <div class="mb-6">
+                <h1 class="text-5xl font-bold mb-3 flex items-center gap-4">
+                    <img src="logo.png" alt="Choremint Logo" class="w-12 h-12">
+                    <span class="text-black">Chore<span class="text-teal-500">Mint</span></span>
+                </h1>
+                <p class="text-xl text-gray-600" data-en="Earn · Learn · Save" data-ko="벌기 · 배우기 · 저축하기">
+                    Earn · Learn · Save
+                </p>
+            </div>
+
+            <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold">
+                    [Category: Education]
+                </span>
+                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold">
+                    [Platform: Mobile App]
+                </span>
+            </div>
+
+            <div class="mt-6 pt-6 border-t border-gray-200">
+                <p class="text-sm text-gray-500">
+                    <strong>Author:</strong> Seohyeon Baek | Jian Lee<br>
+                    <strong>Date:</strong> October 23, 2025<br>
+                    <strong>Team:</strong> The developers
+                </p>
+            </div>
+        </div>
+
+        <!-- Problem -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <span class="text-4xl mr-3">🎯</span>
+                Problem Definition
+            </h2>
+
+            <div class="space-y-4">
+                <div>
+                    <h3 class="font-bold text-lg text-purple-600 mb-2" data-en="What problem are you solving?" data-ko="어떤 문제를 해결하나요?">What problem are you solving?</h3>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <div class="text-gray-700 space-y-3">
+                            <p>
+                                <strong data-en="Parents struggle to teach money habits through chores" data-ko="부모들은 집안일을 통해 돈 습관을 가르치려고 노력하지만 어렵습니다">Parents struggle to teach money habits through chores</strong> <span data-en="in cashless homes. Creating chores, verifying completion, keeping things fair between siblings, and tracking balances/goals becomes tedious and time-consuming." data-ko="현금 없는 가정에서는 집안일 만들기, 완료 확인, 형제자매 간 공정성 유지, 잔액/목표 추적이 번거롭고 시간이 많이 걸립니다.">in cashless homes. Creating chores, verifying completion, keeping things fair between siblings, and tracking balances/goals becomes tedious and time-consuming.</span>
+                            </p>
+                            <p>
+                                <strong data-en="Kids don't 'feel' the value of money" data-ko="아이들은 돈의 가치를 '느끼지' 못합니다">Kids don't "feel" the value of money</strong> <span data-en="because task completion rarely connects to earning, saving, or giving. The connection between work and reward is lost in digital transactions." data-ko="왜냐하면 작업 완료가 벌기, 저축하기, 기부하기와 거의 연결되지 않기 때문입니다. 일과 보상의 연결이 디지털 거래에서 사라집니다.">because task completion rarely connects to earning, saving, or giving. The connection between work and reward is lost in digital transactions.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg text-purple-600 mb-2" data-en="Why is this problem important?" data-ko="왜 이 문제가 중요한가요?">Why is this problem important?</h3>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <p class="text-gray-700">
+                            <strong data-en="Early money habits stick." data-ko="어릴 때 들인 돈 습관은 오래갑니다.">Early money habits stick.</strong> <span data-en="Without a structured, engaging loop (complete → earn → save/spend/give → feedback), kids miss hands-on practice and families face friction and inconsistency." data-ko="(일) 완료 → 획득 → 저축/소비/기부 → 피드백으로 이어지는, 구조화되고 흥미로운 순환 고리가 없다면 아이들은 직접적인 실행 연습 기회를 놓치게 되고, 가족들은 마찰과 비일관성을 겪게 됩니다.">Without a structured, engaging loop (complete → earn → save/spend/give → feedback), kids miss hands-on practice and families face friction and inconsistency.</span> <strong data-en="Solving this reduces parent workload and conflict while building lifelong financial literacy." data-ko="이 문제를 해결하면 부모의 부담과 갈등을 줄이는 동시에 평생 지속될 금융 이해력을 길러줄 수 있습니다.">Solving this reduces parent workload and conflict while building lifelong financial literacy.</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Target Users -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <span class="text-4xl mr-3">👥</span>
+                Target Users
+            </h2>
+
+            <div class="space-y-4">
+                <div>
+                    <h3 class="font-bold text-lg text-blue-600 mb-2" data-en="Who are your target users?" data-ko="타겟 유저는 누구인가요?">Who are your target users?</h3>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <div class="space-y-8">
+                            <!-- Parents Section -->
+                            <div class="border-l-4 border-blue-200 pl-4">
+                                <h4 class="font-semibold text-gray-800 mb-4" data-en="Parents" data-ko="부모">Parents</h4>
+                                
+                                <div class="mb-4">
+                                    <h5 class="font-medium text-gray-700 mb-2" data-en="Demographics" data-ko="인구통계">Demographics</h5>
+                                    <ul class="text-gray-600 space-y-1 text-sm">
+                                        <li data-en="• Age: 32–48 (parents of kids 6–17)" data-ko="• 연령: 32–48세(6–17세 자녀 부모)">• Age: 32–48 (parents of kids 6–17)</li>
+                                        <li data-en="• Occupation: Working or stay-at-home parents (office, healthcare, education, retail/service)" data-ko="• 직업: 맞벌이/전업 부모(사무·의료·교육·리테일/서비스)">• Occupation: Working or stay-at-home parents (office, healthcare, education, retail/service)</li>
+                                        <li data-en="• Location: U.S. family suburbs (e.g., Irvine CA, Plano TX, Bellevue WA, Naperville IL)" data-ko="• 지역: 미국 가족 중심 교외(예: 어바인, 플레이노, 벨뷰, 네이퍼빌)">• Location: U.S. family suburbs (e.g., Irvine CA, Plano TX, Bellevue WA, Naperville IL)</li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h5 class="font-medium text-gray-700 mb-2" data-en="3 Behaviors" data-ko="3가지 행동">3 Behaviors</h5>
+                                    <ul class="text-gray-600 space-y-2 text-sm">
+                                        <li data-en="Approves chores on phone in <1 min." data-ko="휴대폰으로 1분 내 승인">Approves chores on phone in <1 min</li>
+                                        <li data-en="Sets weekly allowance $5–$20 and wants visible progress (goal bars/badges)" data-ko="주당 용돈 $5–$20 설정, 진행률/배지 등 가시적 보상 선호">Sets weekly allowance $5–$20 and wants visible progress (goal bars/badges)</li>
+                                        <li data-en="Responds to push reminders; uses templates for quick setup" data-ko="푸시 알림에 잘 반응, 템플릿으로 빠른 설정 선호">Responds to push reminders; uses templates for quick setup</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Kids Section -->
+                            <div class="border-l-4 border-green-200 pl-4">
+                                <h4 class="font-semibold text-gray-800 mb-4" data-en="Kids" data-ko="자녀">Kids</h4>
+                                
+                                <div class="mb-4">
+                                    <h5 class="font-medium text-gray-700 mb-2" data-en="Demographics" data-ko="인구통계">Demographics</h5>
+                                    <ul class="text-gray-600 space-y-1 text-sm">
+                                        <li data-en="• Age: 6–17 (elementary–high school)" data-ko="• 연령: 6–17세(초·중·고)">• Age: 6–17 (elementary–high school)</li>
+                                        <li data-en="• Occupation: Students" data-ko="• 직업: 학생">• Occupation: Students</li>
+                                        <li data-en="• Location: Same U.S. households/suburbs as parents" data-ko="• 지역: 부모와 동일한 미국 교외 가정">• Location: Same U.S. households/suburbs as parents</li>
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <h5 class="font-medium text-gray-700 mb-2" data-en="3 Behaviors" data-ko="3가지 행동">3 Behaviors</h5>
+                                    <ul class="text-gray-600 space-y-2 text-sm">
+                                        <li data-en="Motivated by instant feedback: coins, streaks, confetti." data-ko="즉시 보상(코인·스트릭·컨페티)에 강하게 동기화.">Motivated by instant feedback: coins, streaks, confetti.</li>
+                                        <li data-en="Uploads photo/video proof and checks savings-goal bars (e.g., Switch $299)." data-ko="사진/영상 인증 업로드, 저축 목표 진행률 자주 확인.">Uploads photo/video proof and checks savings-goal bars (e.g., Switch $299).</li>
+                                        <li data-en="Uses phone/tablet after school; prefers big buttons & short flows." data-ko="방과 후 모바일/태블릿 사용, 큰 버튼·짧은 플로우 선호.">Uses phone/tablet after school; prefers big buttons & short flows.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg text-blue-600 mb-2" data-en="User Persona" data-ko="사용자 페르소나">User Persona</h3>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <div class="text-gray-700 space-y-3">
+                            <p>
+                                <strong data-en="Persona — Lora (Buyer/User)" data-ko="페르소나 — 로라 (구매자/사용자)">Persona — Lora (Buyer/User)</strong>
+                            </p>
+                            <p data-en="Profile: 40, Irvine CA / married / two kids Ryan(10), Chloe(7)" data-ko="프로필: 40세, 캘리포니아 어바인 / 기혼 / 자녀 라이언(10), 클로이(7)">
+                                Profile: 40, Irvine CA / married / two kids Ryan(10), Chloe(7)
+                            </p>
+                            <p data-en="Pain: Hard to track who did what / forgets to hand out cash / kids lose interest without visible progress." data-ko="문제: 누가 무엇을 했는지 추적 어려움, 현금 지급 자주 깜빡, 눈에 보이는 진전이 없어 흥미 저하">
+                                Pain: Hard to track who did what / forgets to hand out cash / kids lose interest without visible progress.
+                            </p>
+                            <p data-en="Goal: Build early money habits (saving/responsibility) with less nagging." data-ko="목표: 잔소리 줄이고 저축·책임감 습관을 초등 때부터 형성">
+                                Goal: Build early money habits (saving/responsibility) with less nagging.
+                            </p>
+                            <p data-en="Why ChoreMint: Photo proof → parent approve → virtual coins → savings goals (e.g., Nintendo Switch — $299)" data-ko="왜 ChoreMint(초어민트): 사진 인증 → 부모 승인 → 가상 코인 → 저축 목표(예: 닌텐도 스위치 $299)">
+                                Why ChoreMint: Photo proof → parent approve → virtual coins → savings goals (e.g., Nintendo Switch — $299)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Solution -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <span class="text-4xl mr-3">💡</span>
+                Core Solution
+            </h2>
+
+            <div class="space-y-4">
+                <div>
+                    <h3 class="font-bold text-lg text-green-600 mb-2" data-en="How does your service solve the problem?" data-ko="서비스가 문제를 어떻게 해결하나요?">How does your service solve the problem?</h3>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <div class="text-gray-700 space-y-4">
+                            <p>
+                                <strong data-en="One-liner: Chore → Photo proof → Parent approves → Instant coins → Visible savings progress." data-ko="한 줄: 집안일 → 사진 인증 → 부모 1탭 승인 → 즉시 코인 적립 → 목표바가 차오름.">One-liner: Chore → Photo proof → Parent approves → Instant coins → Visible savings progress.</strong>
+                            </p>
+                            <p data-en="Frictionless start: Pick chore templates, link kids, and get going in minutes." data-ko="빠른 시작: 템플릿 선택·자녀 연결만 하면 바로 사용.">
+                                Frictionless start: Pick chore templates, link kids, and get going in minutes.
+                            </p>
+                            <p data-en="Photo proof + 1-tap approval: Kids upload before/after; parents approve in <1 min." data-ko="사진 인증 + 1분 내 승인: 전/후 사진 업로드, 부모는 간단 승인.">
+                                Photo proof + 1-tap approval: Kids upload before/after; parents approve in <1 min.
+                            </p>
+                            <p data-en="Instant feedback loop: Coins drop instantly and fill a goal bar (streaks, badges, confetti)." data-ko="즉시 보상 루프: 코인 적립과 진행률/스트릭·배지·컨페티로 동기 유지.">
+                                Instant feedback loop: Coins drop instantly and fill a goal bar (streaks, badges, confetti).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-lg text-green-600 mb-2" data-en="What makes your solution different?" data-ko="솔루션의 차별점은 무엇인가요?">What makes your solution different?</h3>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <div class="text-gray-700 space-y-4">
+                            <p data-en="Progress over checkmarks: Before/After + progress % and estimated reward, not just "done."" data-ko="체크리스트가 아닌 '진행률' 중심: Before/After와 진행률·예상 보상이 한눈에.">
+                                Progress over checkmarks: Before/After + progress % and estimated reward, not just "done."
+                            </p>
+                            <p data-en="Parent-first control: AI can assist, but parents make the final call—transparent and fair." data-ko="부모 최종 권한: AI는 보조, 최종 판단은 부모—공정하고 신뢰감.">
+                                Parent-first control: AI can assist, but parents make the final call—transparent and fair.
+                            </p>
+                            <p data-en="Kid-friendly & safe: Big tappable UI, simple copy, light gamification, and clear allowance history." data-ko="아동 친화·안전 UX: 큰 버튼·쉬운 문구·가벼운 게임화, 용돈 기록도 명확.">
+                                Kid-friendly & safe: Big tappable UI, simple copy, light gamification, and clear allowance history.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Minimum Feature Set -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <span class="text-4xl mr-3">✅</span>
+                Minimum Feature Set
+            </h2>
+            <div class="space-y-6">
+                <!-- Must-Have Features -->
+                <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-400">
+                    <h3 class="font-bold text-green-800 mb-4" data-en="✅ Must-Have (Week 6–8: MVP – 3 weeks!)" data-ko="✅ 필수 기능 (6-8주차: MVP – 3주!)">✅ Must-Have (Week 6–8: MVP – 3 weeks!)</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-en="Parent–Kid Link & Chore Templates" data-ko="부모–자녀 연결 & 집안일 템플릿">Parent–Kid Link & Chore Templates</h4>
+                            <p class="text-gray-700" data-en="Quick onboarding to link a parent with 1–2 kids; pick from ready-made chore templates and assign." data-ko="부모–자녀 빠른 연결, 템플릿에서 집안일 선택·지정.">
+                                Quick onboarding to link a parent with 1–2 kids; pick from ready-made chore templates and assign.
+                            </p>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-en="Photo Proof → 1-Tap Approve → Coins" data-ko="사진 인증 → 1탭 승인 → 코인">Photo Proof → 1-Tap Approve → Coins</h4>
+                            <p class="text-gray-700" data-en="Kid uploads a photo (Before optional, After required); parent reviews and approves in under a minute; coins are awarded and submission is logged." data-ko="(전 optional/후 필수) 사진 인증 → 부모 1탭 승인 → 코인 적립 & 기록 저장.">
+                                Kid uploads a photo (Before optional, After required); parent reviews and approves in under a minute; coins are awarded and submission is logged.
+                            </p>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-800 mb-2" data-en="Savings Goal & Progress Bar (per kid)" data-ko="저축 목표 & 진행률 바 (자녀별)">Savings Goal & Progress Bar (per kid)</h4>
+                            <p class="text-gray-700" data-en="Set a goal (e.g., "Nintendo Switch — $299"), show coin balance and a clear progress bar/history." data-ko="자녀별 목표 설정, 코인 잔액·진행률 바·히스토리 표시.">
+                                Set a goal (e.g., "Nintendo Switch — $299"), show coin balance and a clear progress bar/history.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Should-Have Features -->
+                <div class="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-400">
+                    <h3 class="font-bold text-yellow-800 mb-4" data-en="⚠️ Should-Have (Week 9–10: PMF Iteration)" data-ko="⚠️ 선택 기능 (9-10주차: PMF 반복)">⚠️ Should-Have (Week 9–10: PMF Iteration)</h3>
+                    
+                    <div class="space-y-3">
+                        <div class="bg-white p-3 rounded-lg">
+                            <p class="text-gray-700" data-en="Push reminders & streaks/badges if parents say kids lose momentum." data-ko="아이 동기 저하 피드백 시 푸시 리마인더, 스트릭/배지 추가.">
+                                Push reminders & streaks/badges if parents say kids lose momentum.
+                            </p>
+                        </div>
+
+                        <div class="bg-white p-3 rounded-lg">
+                            <p class="text-gray-700" data-en="Estimated reward preview after "Before" photo to boost motivation." data-ko="'전' 사진 후 예상 보상 미리보기.">
+                                Estimated reward preview after "Before" photo to boost motivation.
+                            </p>
+                        </div>
+
+                        <div class="bg-white p-3 rounded-lg">
+                            <p class="text-gray-700" data-en="Lightweight web dashboard for parents (batch approve, weekly summary)." data-ko="부모용 경량 웹 대시보드(일괄 승인, 주간 요약).">
+                                Lightweight web dashboard for parents (batch approve, weekly summary).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Won't Have Features -->
+                <div class="bg-red-50 p-6 rounded-lg border-l-4 border-red-400">
+                    <h3 class="font-bold text-red-800 mb-4" data-en="❌ Won't Have (Not This Semester)" data-ko="❌ 제외 기능 (이번 학기 제외)">❌ Won't Have (Not This Semester)</h3>
+                    
+                    <div class="space-y-2">
+                        <div class="bg-white p-3 rounded-lg">
+                            <p class="text-gray-700" data-en="✗ Classroom / Teacher mode (multi-kid groups, QR check-ins, certificates)" data-ko="✗ 교실/선생님 모드 (다중 자녀 그룹, QR 체크인, 인증서)">
+                                ✗ Classroom / Teacher mode (multi-kid groups, QR check-ins, certificates)
+                            </p>
+                        </div>
+
+                        <div class="bg-white p-3 rounded-lg">
+                            <p class="text-gray-700" data-en="✗ Payments / top-ups integration" data-ko="✗ 카드/결제 연동, 지갑 기능 등">
+                                ✗ Payments / top-ups integration
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <span class="text-4xl mr-3">🔧</span>
+                Tech Stack
+            </h2>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="font-bold text-purple-600 mb-3">Frontend</h3>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2"> React (Web)
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2 accent-blue-600" checked> React Native (iOS + Android)
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2"> PWA (Progressive Web App)
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-purple-600 mb-3">Backend</h3>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2"> Express.js
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2 accent-blue-600" checked> Supabase (Database)
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2 accent-blue-600" checked> Supabase Auth
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2 accent-blue-600" checked> Supabase Storage
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-purple-600 mb-3">AI/ML (if applicable)</h3>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2"> Gemini API (LLM)
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2"> Gemini Vision API (Image)
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2"> OpenAI API
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-bold text-purple-600 mb-3">Mobile Features</h3>
+                    <div class="space-y-2">
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2 accent-blue-600" checked> Camera
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2"> Location/GPS
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2 accent-blue-600" checked> Push Notifications
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="mr-2"> Widgets
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success Metrics -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <span class="text-4xl mr-3">📊</span>
+                Success Metrics
+            </h2>
+
+            <div class="space-y-4">
+                <div class="bg-gradient-to-r from-green-50 to-blue-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-gray-800 mb-2" data-en="User Acquisition" data-ko="유저 획득">User Acquisition</h3>
+                    <p class="text-gray-700" data-en="120 signups, 40 active families (parent+kid) in first 2 weeks" data-ko="가입 120명, 활성 가족 40팀(부모+자녀) — 출시 2주 내">
+                        120 signups, 40 active families (parent+kid) in first 2 weeks
+                    </p>
+                </div>
+
+                <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-gray-800 mb-2" data-en="Engagement" data-ko="참여도">Engagement</h3>
+                    <div class="space-y-2">
+                        <p class="text-gray-700" data-en="≥4 approved submissions/kid/week (median)" data-ko="자녀당 주당 승인 완료 4건 이상(중앙값)">
+                            ≥4 approved submissions/kid/week (median)
+                        </p>
+                        <p class="text-gray-700" data-en="≤60 sec median parent approval time" data-ko="부모 승인 중앙값 60초 이하">
+                            ≤60 sec median parent approval time
+                        </p>
+                        <p class="text-gray-700" data-en="≥70% of kids set at least 1 savings goal" data-ko="자녀의 저축 목표 설정율 70% 이상">
+                            ≥70% of kids set at least 1 savings goal
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-yellow-50 to-orange-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-gray-800 mb-2" data-en="Retention" data-ko="재방문/유지">Retention</h3>
+                    <div class="space-y-2">
+                        <p class="text-gray-700" data-en="60% weekly retention (families return the following week)" data-ko="주간 유지율 60%(다음 주에도 사용)">
+                            60% weekly retention (families return the following week)
+                        </p>
+                        <p class="text-gray-700" data-en="40% D7 retention (families active 7 days after first approval)" data-ko="D7 유지율 40%(첫 승인 7일 후에도 활동)">
+                            40% D7 retention (families active 7 days after first approval)
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-red-50 to-pink-50 p-4 rounded-lg">
+                    <h3 class="font-bold text-gray-800 mb-2" data-en="Product–Market Fit Signal" data-ko="PMF 시그널">Product–Market Fit Signal</h3>
+                    <div class="space-y-2">
+                        <p class="text-gray-700" data-en= "≥40% very disappointed if ChoreMint disappeared (PMF survey)" data-ko="서비스 종료 시 매우 아쉬움 40% 이상(PMF 설문)">
+                            ≥40% "very disappointed" if ChoreMint disappeared (PMF survey)
+                        </p>
+                        <p class="text-gray-700 font-semibold" data-en="(Bonus) ≥70% parents self-report less nagging after 1 week" data-ko="(보너스) 부모 70% 이상 잔소리 감소 체감 보고">
+                            (Bonus) ≥70% parents self-report "less nagging" after 1 week
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wireframe/Mockup (Optional) -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <span class="text-4xl mr-3">🎨</span>
+                Wireframe / Mockup
+            </h2>
+
+            <div class="space-y-6">
+                <!-- Mobile App Screenshots -->
+                <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                    <img src="UI.png" alt="ChoreMint Mobile App UI Screenshots" class="w-full h-auto rounded">
+                </div>
+            </div>
+        </div>
+
+        <!-- User Flow (Optional) -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <span class="text-4xl mr-3">🔄</span>
+                User Flow
+            </h2>
+            <div class="space-y-8">
+                <!-- Parent Flow -->
+                <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-400">
+                    <h3 class="font-bold text-blue-800 mb-4" data-en="Parent Flow" data-ko="부모 흐름">Parent Flow</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 flex-shrink-0 text-sm">
+                                1
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-gray-700" data-en="Opens app → 60-sec onboarding (create parent, add kid)" data-ko="앱 실행 → 60초 온보딩(부모 만들기, 자녀 추가)">
+                                    Opens app → 60-sec onboarding (create parent, add kid)
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center">
+                            <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 flex-shrink-0 text-sm">
+                                2
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-gray-700" data-en="Picks 2–3 chore templates → assigns to each kid" data-ko="템플릿에서 집안일 2–3개 선택 → 자녀에게 배정">
+                                    Picks 2–3 chore templates → assigns to each kid
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center">
+                            <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 flex-shrink-0 text-sm">
+                                3
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-gray-700" data-en="Gets push when a submission arrives → opens Review" data-ko="푸시 알림 수신 → 검토 화면 열기">
+                                    Gets push when a submission arrives → opens Review
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center">
+                            <div class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 flex-shrink-0 text-sm">
+                                ✓
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-gray-700" data-en="Success: Approves with 1 tap → coins added → goal bar updates" data-ko="성공: 1탭 승인 → 코인 적립 → 목표 바 갱신">
+                                    Success: Approves with 1 tap → coins added → goal bar updates
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kid Flow -->
+                <div class="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-400">
+                    <h3 class="font-bold text-yellow-800 mb-4" data-en="Kid Flow" data-ko="자녀 흐름">Kid Flow</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="bg-yellow-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 flex-shrink-0 text-sm">
+                                1
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-gray-700" data-en="Opens app → sees Today's Tasks (big cards)" data-ko="앱 실행 → 오늘 할 일 카드 보기">
+                                    Opens app → sees Today's Tasks (big cards)
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center">
+                            <div class="bg-yellow-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 flex-shrink-0 text-sm">
+                                2
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-gray-700" data-en="Taps a task → takes After photo (Before optional) → submits" data-ko="과제 탭 → 후 사진 촬영(전 사진은 선택) → 제출">
+                                    Taps a task → takes After photo (Before optional) → submits
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center">
+                            <div class="bg-yellow-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 flex-shrink-0 text-sm">
+                                3
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-gray-700" data-en="Sees instant coins & confetti; checks goal progress" data-ko="즉시 코인 + 컨페티 → 목표 진행률 확인">
+                                    Sees instant coins & confetti; checks goal progress
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center">
+                            <div class="bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4 flex-shrink-0 text-sm">
+                                ✓
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-gray-700" data-en="Success: Task marked done → streak increments → progress bar moves" data-ko="성공: 과제 완료 처리 → 스트릭 증가 → 진행 바 전진">
+                                    Success: Task marked done → streak increments → progress bar moves
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Challenges & Risks -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                <span class="text-4xl mr-3">⚠️</span>
+                Challenges & Risks
+            </h2>
+
+            <div class="space-y-3">
+                <div class="border-l-4 border-yellow-400 pl-4 py-2 bg-yellow-50">
+                    <h3 class="font-bold text-gray-800" data-en="Parent–Kid sync reliability" data-ko="부모–자녀 싱크 안정성">Parent–Kid sync reliability</h3>
+                    <p class="text-sm text-gray-600 mt-1">
+                        <strong data-en="Solution:" data-ko="해결:">Solution:</strong> <span data-en="Real-time sync + offline queue, server-timestamp reconcile." data-ko="실시간 동기화 + 오프라인 큐, 서버 타임스탬프 정합.">Real-time sync + offline queue, server-timestamp reconcile.</span>
+                    </p>
+                </div>
+
+                <div class="border-l-4 border-yellow-400 pl-4 py-2 bg-yellow-50">
+                    <h3 class="font-bold text-gray-800" data-en="Image recognition accuracy" data-ko="이미지 인식 정확도">Image recognition accuracy</h3>
+                    <p class="text-sm text-gray-600 mt-1">
+                        <strong data-en="Solution:" data-ko="해결:">Solution:</strong> <span data-en="Parent final approval, confidence threshold + manual fallback." data-ko="부모 최종 승인, 신뢰도 기준 + 수동 검토 폴백.">Parent final approval, confidence threshold + manual fallback.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+
+        <!-- Footer -->
+        <div class="text-center text-gray-600 mt-12">
+            <p class="text-sm">KMU Global PBL 2025 Fall - made by Lumi 🎀</p>
+        </div>
+
+    </div>
+
+    <script>
+        // Language toggle functionality
+        let currentLang = 'en';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ko' : 'en';
+            const button = document.getElementById('langToggle');
+            button.textContent = currentLang === 'en' ? '한국어' : 'English';
+            
+            // Update all elements with data attributes
+            document.querySelectorAll('[data-en][data-ko]').forEach(element => {
+                const text = currentLang === 'en' ? element.getAttribute('data-en') : element.getAttribute('data-ko');
+                element.textContent = text;
+            });
+        }
+
+        document.getElementById('langToggle').addEventListener('click', toggleLanguage);
+    </script>
+</body>
+</html>
